@@ -1,4 +1,6 @@
-# AWS_DEA
+# AWS DEA
+
+Apache Avro
 
 - AWS Glue
 クローラー
@@ -14,6 +16,10 @@ Studio
   PII
 Data Quality
 FindMatches 機械学習 (ML) 変換
+パーティションインデックス/パーティションフィルタリング
+PySpark
+create_partition API
+MSCK REPAIR TABLE
 
 - Amazon Redshift
 Data API
@@ -26,6 +32,7 @@ Redshift Spectrum
   Parquet や ORC
 列指向
   パーティショニングはデータのフィルタリングに役立ち、列ストレージは分析（OLAP）クエリに最適化されています。
+STL_ALERT_EVENT_LOG
 
 - AWS DataSync
 
@@ -35,6 +42,10 @@ Redshift Spectrum
 Athena Boto3
   get_query_execution
 フェデレーテッドクエリ
+Athena パーティション投影
+Create Table As Select (CTAS)
+ワークグループ
+https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark-getting-started.html
 
 - AWS Step Functions
 ステートマシン
@@ -51,6 +62,9 @@ Hadoop Distributed File System (HDFS)
 データレイクストレージ(↔︎データウェアハウス)
 半構造化データ
 変更データ キャプチャ (CDC) 操作
+バケットプレフィックス
+パーティション分割
+S3 Select
 
 - Amazon Kinesis Data Streams
 サブスクリプション フィルター
@@ -60,3 +74,19 @@ Hadoop Distributed File System (HDFS)
 - Amazon QuickSight
 
 - Amazon RDS
+
+- Amazon Managed Service for Apache Flink (旧称 Amazon Kinesis Data Analytics)
+
+- Amazon Elastic Block Store (Amazon EBS)
+https://aws.amazon.com/blogs/storage/migrate-your-amazon-ebs-volumes-from-gp2-to-gp3-and-save-up-to-20-on-costs/
+
+- AWS Lake Formation
+S3 パス
+
+- Amazon AppFlow
+Salesforce などの SaaS (Software as a Service) アプリケーションと、Amazon Simple Storage Service (Amazon S3) や Amazon Redshift などの AWS サービス間で安全にデータを交換できる、完全に管理された統合サービスです。たとえば、Salesforce から Amazon Redshift に連絡先レコードを取り込んだり、Zendesk から Amazon S3 バケットにサポート チケットを取得したりできます。
+
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+
+- SQL
+
