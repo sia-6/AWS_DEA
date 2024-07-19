@@ -90,4 +90,3 @@ Salesforce などの SaaS (Software as a Service) アプリケーションと、
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 
 - SQL
-
