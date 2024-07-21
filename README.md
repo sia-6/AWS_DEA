@@ -1,7 +1,26 @@
 # AWS DEA
 
 Apache Avro
+Apache Airflow
+Apache Hadoop
+Apache Pig、Apache Oozie、Apache Spark、Apache Hbase、Apache Flink
+Apache Hive
+Apache Spark
+PySpark
+Apache Ranger
+Apache Kafka
 
+インターリーブ
+ストアド プロシージャ
+
+構造化データソース:SQL
+JSON 形式:PartiQL
+
+SAP HANA
+Microsoft SQL Server
+MongoDB
+Splunk
+DynamicFrame
 
 - AWS Glue
 クローラー
@@ -13,14 +32,21 @@ DataBrew
 トリガー
 AWS Glue 接続
 ETLジョブ
+ジョブ ブックマーク
 Studio
   PII
 Data Quality
 FindMatches 機械学習 (ML) 変換
 パーティションインデックス/パーティションフィルタリング
-PySpark
 create_partition API
 MSCK REPAIR TABLE
+スキーマレジストリ
+変換
+  NEST_TO_MAP
+  NEST_TO_ARRAY
+  PIVOT
+Data Quality
+データ品質ルールセット
 
 - Amazon Redshift
 Data API
@@ -32,14 +58,29 @@ RA3 ノード
 Redshift Spectrum
   Parquet や ORC
 列指向
-  パーティショニングはデータのフィルタリングに役立ち、列ストレージは分析（OLAP）クエリに最適化されています。
+  パーティショニングはデータのフィルタリングに役立ち、列ストレージは分析（OLAP）クエリに最適化されている
 STL_ALERT_EVENT_LOG
+クエリエディタ v2
+ra3.4xlarge ノード
+分散キー
+最大のディメンションを持つテーブル列
+Redshift Serverless
+Redshift Spectrum
+コマンド
+  VACUUM REINDEX [******]
+  UNLOAD
+分散スタイル
+  EVEN
+  ALL
+ストリーミング取り込み
 
 - AWS DataSync
 
 - AWS Database Migration Service (AWS DMS)
 
 - Amazon Athena
+SQLクエリ
+ 
 Athena Boto3
   get_query_execution
 フェデレーテッドクエリ
@@ -47,17 +88,24 @@ Athena パーティション投影
 Create Table As Select (CTAS)
 ワークグループ
 https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark-getting-started.html
+クエリ結果再利用機能
+データ定義言語 (DDL) 
+  MSCK REPAIR TABLE
+  REPAIR TABLE
+  ALTER TABLE [******] MODIFY PARTITION
 
 - AWS Step Functions
 ステートマシン
 タスク
 Map state
   並列処理
+ワークフロー
 
 - Amazon EMR
-Apache Pig、Apache Oozie、Apache Spark、Apache Hbase、および Apache Flink
+Apache Pig、Apache Oozie、Apache Spark、Apache Hbase、Apache Flink
 Hadoop Distributed File System (HDFS)
 コアノードとタスクノードに Graviton インスタンス
+EMR Serverless
 
 - S3
 データレイクストレージ(↔︎データウェアハウス)
@@ -66,15 +114,22 @@ Hadoop Distributed File System (HDFS)
 バケットプレフィックス
 パーティション分割
 S3 Select
+オブジェクト Lambda 関数
+S3 Glacier Select
 
 - Amazon Kinesis Data Streams
 サブスクリプション フィルター
+シャード間負荷
+  WriteThroughputExceeded
+ExpiredIteratorExceptions
+Amazon Kinesis クライアントライブラリ (KCL) 
 
 - Amazon Kinesis Data Firehose
 
 - Amazon QuickSight
 
 - Amazon RDS
+パフォーマンスインサイト機能
 
 - Amazon Managed Service for Apache Flink (旧称 Amazon Kinesis Data Analytics)
 
@@ -83,10 +138,19 @@ https://aws.amazon.com/blogs/storage/migrate-your-amazon-ebs-volumes-from-gp2-to
 
 - AWS Lake Formation
 S3 パス
+行と列のアクセス
 
 - Amazon AppFlow
-Salesforce などの SaaS (Software as a Service) アプリケーションと、Amazon Simple Storage Service (Amazon S3) や Amazon Redshift などの AWS サービス間で安全にデータを交換できる、完全に管理された統合サービスです。たとえば、Salesforce から Amazon Redshift に連絡先レコードを取り込んだり、Zendesk から Amazon S3 バケットにサポート チケットを取得したりできます。
+Salesforce などの SaaS (Software as a Service) アプリケーションと、Amazon Simple Storage Service (Amazon S3) や Amazon Redshift などの AWS サービス間で安全にデータを交換できる、完全に管理された統合サービス。たとえば、Salesforce から Amazon Redshift に連絡先レコードを取り込んだり、Zendesk から Amazon S3 バケットにサポート チケットを取得できる。
 
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 
+* Amazon Managed Workflows for Apache Airflow (Amazon MWAA) 
+
 - SQL
+
+- AWS CloudTraiL
+データ イベントの証跡
+
+* Amazon Aurora 
+ゼロETL
