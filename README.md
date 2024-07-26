@@ -13,7 +13,7 @@ AWS Glue Studioは、AWS Glueでのデータ統合ジョブを簡単に作成、
 ### AWS Glue クローラー
 AWS Glue クローラーは、データソースからメタデータを自動的に収集し、AWS Glue データカタログにテーブル定義を作成するツールです。これにより、データの構造を簡単に把握し、クエリや分析に利用できるようになります。クローラーは、データソースをスキャンし、スキーマ情報（列名、データ型、パーティション情報など）を収集して、データカタログに登録します。
 
-### AWS Glueワークフロー
+### AWS Glue ワークフロー
 AWS Glueワークフローは、データの抽出、変換、ロード（ETL）プロセスを自動化するために複数のジョブやトリガーを統合して管理するための機能です。ワークフローを使用することで、複数のETLタスクをシーケンシャルまたは並列に実行し、データ処理のパイプラインを構築、監視、管理することができます。
 
 ### AWS Glue Connections
@@ -53,6 +53,7 @@ https://docs.aws.amazon.com/ja_jp/msk/latest/developerguide/what-is-msk.html#:~:
 リアルタイムデータストリーミング、イベント駆動型アーキテクチャ、ログ収集とモニタリング、データパイプラインの構築、メッセージブローカーとしての使用などに適している。
 
 ## Apache Kafka
+https://aws.amazon.com/jp/what-is/apache-kafka/
 
 # Amazon DynamoDB
 https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/Introduction.html
