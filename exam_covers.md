@@ -2,6 +2,8 @@
 
 ### **Amazon Athena**
 Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存されたデータに対して直接SQLクエリを実行できます。Athenaは、データを取り込む手間をかけずに分析を行いたい場合に最適です。使用する分だけ料金が発生するため、コスト効率が良いのも特徴です。
+- Amazon Athena ワークグループ : Athenaクエリの管理とコスト制御を行うための機能。特定のクエリや一連のクエリをグループ化し、それに関連する設定を一元管理できる。各ワークグループに対して、クエリの実行履歴やコスト、リソースの制御、クエリ結果の保存先などを設定できる。チームやプロジェクトごとにクエリ実行環境を分けて効率的に管理することが可能。
+- Athena パーティション投影
 
 ### **Amazon EMR**
 Amazon EMR (Elastic MapReduce) は、ビッグデータの処理と分析を行うためのクラウドサービスです。Hadoop、Spark、Hive、Prestoなどのオープンソースツールを使って、膨大なデータを分散処理することができます。EMRは、データの処理速度やコスト効率を最大化するために柔軟に設定可能です。
@@ -16,9 +18,17 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - コミットステートメント : ジョブ正常終了時にジョブブックマークを更新するために使用される。データの重複処理を防ぐ。
 - PySpark 変換
     - FindMatches クラス : 入力のDynamicFrame内で一致するレコードを特定し、そのレコードの各グループに割り当てられている一意の識別子を含む新しいDynamicFrameを作成する。
+- AWS Glue スキーマレジストリ
+- AWS Glue ワークロード
+- AWS Glue データカタログ
+- AWS Glue クローラー
+- パーティションインデックス
+- 
 
 ### **AWS Glue DataBrew**
 AWS Glue DataBrewは、コードを書くことなくデータのクレンジング、正規化、プロファイリングを行うためのビジュアルインターフェースを提供します。ETLジョブを作成する前に、データの準備を簡単に行うことができます。
+- 集計関数
+    - COUNT_DISTINCT : 選択したソース列の個別の値の合計数を新しい列に返す。
 
 ### **AWS Lake Formation**
 AWS Lake Formationは、安全でスケーラブルなデータレイクの作成、管理を簡素化するサービスです。S3を基盤とし、さまざまなデータソースからデータを取り込み、統合するためのツールを提供します。また、データガバナンスやアクセス制御の管理を行いやすくする機能もあります。
@@ -31,6 +41,7 @@ Amazon Kinesis Data Firehoseは、リアルタイムでストリーミングデ�
 
 ### **Amazon Kinesis Data Streams**
 Amazon Kinesis Data Streamsは、リアルタイムのストリーミングデータを収集し、処理するためのサービスです。データを継続的に取り込んでストリームに保存し、リアルタイムで処理を行うアプリケーションにデータを供給できます。
+- Kinesis Client Library (KCL) : 
 
 ### **Amazon Managed Service for Apache Flink**
 Amazon Managed Service for Apache Flinkは、Apache Flinkを管理された環境で提供し、リアルタイムのデータストリーム処理を実現します。スケーラビリティが高く、データの変換や集計をリアルタイムで行うことが可能です。
@@ -123,7 +134,9 @@ Amazon RDSは、リレーショナルデータベースの設定、運用、ス�
 ### **Amazon Redshift**
 Amazon Redshiftは、データウェアハウスサービスで、大規模なデータセットに対する高速なクエリ処理を提供します。クラスター内の並列処理を活用し、クエリパフォーマンスを最大化します。
 - 分散スタイル
-- 
+- Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
+- Amazon Redshift Serverless : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+
 ## **デベロッパーツール**
 
 ### **AWS CLI**
@@ -262,6 +275,6 @@ Amazon EFSは、NFS互換のファイルストレージサービスです。複�
 ### **Amazon S3**
 Amazon S3は、オブジェクトストレージサービスで、大量のデータを安全に保存できます。スケーラビリティと耐久性に優れており、データのバックアップやアーカイブに適しています。
 - Amazon S3 Storage Lens : Amazon S3バケットとオブジェクトのストレージメトリクスを可視化して分析できるツール。
-
+- Amazon S3 Object Lambda : Amazon S3バケットからデータを取得する際に、AWS Lambda関数を使ってデータをリアルタイムで動的に処理・変換できる機能。
 ### **Amazon S3 Glacier**
 Amazon S3 Glacierは、長期アーカイブ向けの低コストなストレージサービスです。データのリストアは、数分から数時間で行えるオプションが用意されています。
