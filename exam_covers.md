@@ -136,6 +136,7 @@ Amazon Redshiftは、データウェアハウスサービスで、大規模な�
 - 分散スタイル
 - Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
 - Amazon Redshift Serverless : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+- データ共有
 
 ## **デベロッパーツール**
 
