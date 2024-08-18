@@ -1,34 +1,55 @@
-## **分析サービス**
-
-### **Amazon Athena**
-Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存されたデータに対して直接SQLクエリを実行できます。Athenaは、データを取り込む手間をかけずに分析を行いたい場合に最適です。使用する分だけ料金が発生するため、コスト効率が良いのも特徴です。
-- Amazon Athena ワークグループ : Athenaクエリの管理とコスト制御を行うための機能。特定のクエリや一連のクエリをグループ化し、それに関連する設定を一元管理できる。各ワークグループに対して、クエリの実行履歴やコスト、リソースの制御、クエリ結果の保存先などを設定できる。チームやプロジェクトごとにクエリ実行環境を分けて効率的に管理することが可能。
-- Athena パーティション投影
-
-### **Amazon EMR**
-Amazon EMR (Elastic MapReduce) は、ビッグデータの処理と分析を行うためのクラウドサービスです。Hadoop、Spark、Hive、Prestoなどのオープンソースツールを使って、膨大なデータを分散処理することができます。EMRは、データの処理速度やコスト効率を最大化するために柔軟に設定可能です。
 - Apache Hadoop
 - Apache Spark
 
+## **分析サービス**
+
+### [**Amazon Athena**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/what-is.html)
+Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存されたデータに対して直接SQLクエリを実行できる。Athenaは、データを取り込む手間をかけずに分析を行いたい場合に最適で、使用する分だけ料金が発生するためコスト効率が良い。
+- **[ワークグループの仕組み
+](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/user-created-workgroups.html)** : Amazon Athenaのワークグループは、クエリの実行環境を分離し、管理するための機能。各アカウントにはデフォルトでプライマリワークグループがあり、他のワークグループを作成できる。ワークグループごとにクエリ履歴や設定が独立しており、他のワークグループのクエリには影響を与えない。ワークグループを無効にするとクエリは実行できなくなり、必要な設定を強制的に適用することもできる。
+- **[Amazon Athena でのパーティション射影 (Partition Projection)](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/partition-projection.html)** : 高度にパーティション化されたテーブルのクエリパフォーマンスを改善するための機能。AWS Glueのテーブルプロパティを使用して、Athenaがパーティション情報を「射影」することで、パーティションの検索や管理が迅速化される。これによりクエリの実行時間が短縮され、パーティション管理が自動化され、パーティションプルーニングを行うことで必要なパーティションのみをクエリに適用し効率をさらに高める。
+- **[Amazon Athena フェデレーテッドクエリ](https://aws.amazon.com/jp/blogs/news/query-any-data-source-with-amazon-athenas-new-federated-query/)** : Athenaを使用してAmazon S3以外のデータソースにもクエリを実行できる機能です。これにより、Redshift、RDS、さらには外部のオンプレミスデータベースなど、さまざまなデータソースに対してSQLクエリを実行し、統合的にデータを分析できます。フェデレーテッドクエリを利用することで、複数のデータソースをシームレスに接続し、統一的な分析を実現します。
+- **[Amazon Athena クエリ結果の再利用機能](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/reusing-query-results.html)** : 同一のクエリが複数回実行される際に、以前の結果を再利用することでコスト削減とクエリの応答時間短縮を実現する機能。クエリが再利用されるとAthenaは既存の結果を返し、不要な計算を避けることができる。この機能は、クエリの実行状況に基づいて自動的に適用され、データ分析効率を向上させる。
+- SQL クエリのパフォーマンス
+
+### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
+Amazon EMR (Elastic MapReduce)は、ビッグデータ処理と分析のためのフルマネージドクラウドサービス。ユーザーはApache Hadoop、Apache Spark、Prestoなどのフレームワークを使用して膨大なデータを分散処理できる。EMRは柔軟なスケーリング、コスト効率、そしてセキュリティの統合を提供し、データの収集、処理、分析が容易となる。また、オンデマンドやスポットインスタンスを利用して、リソースの最適な利用が可能。EMRクラスターは、複数のAmazon EC2インスタンス（仮想マシン）で構成され、各インスタンスが「ノード」として機能する。
+- [**ノードタイプ**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-overview.html#emr-overview-clusters) : Amazon EMRのノードタイプには「プライマリーノード」「コアノード」「タスクノード」がある。
+
 ### **AWS Glue**
-AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービスです。データを整理し、分析用のデータレイクやデータウェアハウスにロードするためのツールセットを提供します。Glueはデータカタログを利用して、データの発見、管理、クエリを簡素化します。
+AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス。データを整理し、分析用のデータレイクやデータウェアハウスにロードするためのツールセットを提供している。Glueはデータカタログを利用して、データの発見、管理、クエリを簡素化。
 - DynamicFrame : ETLジョブで使用されるデータ構造。DynamicFrameは、Apache SparkのDataFrameに似ているが、さらに柔軟性があり、より豊富なメタデータを保持する。
-- AWS Glue Data Quality
-    - ルールセット
-- コミットステートメント : ジョブ正常終了時にジョブブックマークを更新するために使用される。データの重複処理を防ぐ。
-- PySpark 変換
-    - FindMatches クラス : 入力のDynamicFrame内で一致するレコードを特定し、そのレコードの各グループに割り当てられている一意の識別子を含む新しいDynamicFrameを作成する。
+- **[大きなグループの入力ファイルの読み取り](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/grouping-input-files.html)** : テーブルのプロパティを設定することで、Amazon S3に保存されている多数の小さなファイルをグループ化し、ETLジョブの効率を向上させることができる。これにより、各ETLタスクが一度に複数のファイルを単一のインメモリパーティションに読み取ることができるため処理が効率化される。
+- [**AWS Glue Data Quality**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/glue-data-quality.html) : データ品質を管理および監視するための機能を提供するサービス。ETL（抽出、変換、ロード）ジョブを実行する際に、データの品質を自動的に評価し、定義されたルールセットに基づいてデータが基準を満たしているかどうかを確認できる。Data Qualityは、ルールの作成、実行、および評価をサポートし、異常を検出して修正するための手段を提供している。
+- [**AWS Lake Formation FindMatches によるレコードのマッチング**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/machine-learning.html) : 重複したレコードや一致するレコードを識別するための機械学習ベースの変換機能。FindMatchesは、異なるデータセット間で似たレコードを特定し、クレンジングや統合のプロセスを簡素化する。FindMatchesはトレーニングされたモデルを使って、一意の識別子がない場合でもレコードを一致させることができ、データの重複を排除したり、データの品質を向上させるために役立つ。
 - AWS Glue スキーマレジストリ
 - AWS Glue ワークロード
+- AWS Glue ワークフロー
 - AWS Glue データカタログ
+    - 中央メタデータリポジトリ
 - AWS Glue クローラー
 - パーティションインデックス
-- 
+- AWS Glue 接続
+- AWS Glue トリガー
+    - オンデマンドトリガー
+- AWS Glue ジョブ
+    - [**ジョブ ブックマーク**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html) : AWS Glueが以前に処理したデータを記憶し、ジョブの再実行時にそのデータをスキップする機能。すでに処理されたデータの再処理を防ぎ、ETLジョブの効率を向上させる。特に大規模なデータ処理において処理時間とコストを削減するのに有効。
+    - コミットステートメント　(job.commit()): ジョブが正常に終了した際にジョブブックマークを更新するための機能。次回のジョブ実行時にどこまでデータが処理されたかを正確に追跡し、重複処理を防ぐ。コミットステートメントを使用することで、データ処理の整合性と効率性が向上する。
+- [**Flex の実行オプション**](https://aws.amazon.com/jp/about-aws/whats-new/2022/08/aws-glue-supports-flex-execution-option/) : コストを最大34%削減できる実行モード。緊急度が低く、すぐに開始する必要のないデータ統合ワークロードに最適で、AWSの予備キャパシティーを使用して実行される。ジョブの開始時間や実行時間は変動する可能性があるが、通常のジョブ機能はそのまま利用できる。重要なワークロードには通常のオプションを、急を要しないワークロードにはFlexを利用することで、コスト効率を最大化できる。
+- [**AWS Glue でSparkジョブのジョブプロパティを構成する**](https://docs.aws.amazon.com/glue/latest/dg/add-job.html)
+- AWS Glue Studio
+    - Detect PII 変換
+- AWSGlueServiceRole
+- FindMatches 機械学習 (ML) 変換
+- AWS Glue PySpark ジョブ
+- AWS Glue Python シェルジョブ
 
 ### **AWS Glue DataBrew**
 AWS Glue DataBrewは、コードを書くことなくデータのクレンジング、正規化、プロファイリングを行うためのビジュアルインターフェースを提供します。ETLジョブを作成する前に、データの準備を簡単に行うことができます。
 - 集計関数
     - COUNT_DISTINCT : 選択したソース列の個別の値の合計数を新しい列に返す。
+- コーディング
+    - NEST_TO_MAP 変換
 
 ### **AWS Lake Formation**
 AWS Lake Formationは、安全でスケーラブルなデータレイクの作成、管理を簡素化するサービスです。S3を基盤とし、さまざまなデータソースからデータを取り込み、統合するためのツールを提供します。また、データガバナンスやアクセス制御の管理を行いやすくする機能もあります。
@@ -41,19 +62,23 @@ Amazon Kinesis Data Firehoseは、リアルタイムでストリーミングデ�
 
 ### **Amazon Kinesis Data Streams**
 Amazon Kinesis Data Streamsは、リアルタイムのストリーミングデータを収集し、処理するためのサービスです。データを継続的に取り込んでストリームに保存し、リアルタイムで処理を行うアプリケーションにデータを供給できます。
-- Kinesis Client Library (KCL) : 
+- Kinesis Client Library (KCL) :
+- シャードの負荷
+    - WriteThroughputExceeded
 
 ### **Amazon Managed Service for Apache Flink**
 Amazon Managed Service for Apache Flinkは、Apache Flinkを管理された環境で提供し、リアルタイムのデータストリーム処理を実現します。スケーラビリティが高く、データの変換や集計をリアルタイムで行うことが可能です。
+- Apache Flink コネクタ
 
 ### **Amazon Managed Streaming for Apache Kafka (Amazon MSK)**
 Amazon MSKは、Apache Kafkaを完全マネージドで提供するサービスです。Kafkaを利用して、ストリーミングデータの取り込みや配信を行うことができます。MSKは、Kafkaクラスターの運用管理を自動化し、スケーリングやパッチ適用も容易です。
 
 ### **Amazon OpenSearch Service**
-Amazon OpenSearch Serviceは、リアルタイムの検索、ログ分析、モニタリングに使用されるマネージドサービスです。大規模なデータセットに対して、高速で検索可能なインデックスを作成し、分析を行うことができます。
+Amazon OpenSearch Serviceは、リアルタイムの検索、ログ分析、モニタリングに使用されるマネージドサービスです。大規模なデータセットに対して、高速で検索可能なインデックスを作成し、分析を行うことができます。OpenSearchダッシュボード（以前はKibanaとして知られていた）は、OpenSearchデータに直接アクセスし、リアルタイムでデータを視覚化するための最も適したツールです。
 
 ### **Amazon QuickSight**
 Amazon QuickSightは、クラウド上のBI（ビジネスインテリジェンス）サービスです。データの可視化やダッシュボードの作成を行い、ビジネスインサイトを迅速に得るためのツールを提供します。QuickSightは、S3、Redshift、Athenaなどのデータソースと統合されており、インタラクティブな分析が可能です。
+- QuickSight SPICE
 
 ## **アプリケーション統合サービス**
 
@@ -72,9 +97,14 @@ Amazon SNSは、プッシュ型のメッセージングサービスで、アプ�
 
 ### **Amazon Simple Queue Service (Amazon SQS)**
 Amazon SQSは、分散メッセージキューイングサービスで、メッセージの送受信を非同期に行うことができます。アプリケーション間のデカップリングや、処理の並列化を容易にするために使用されます。
+- SQS デッドレターキュー
 
 ### **AWS Step Functions**
 AWS Step Functionsは、ワークフローオーケストレーションサービスで、複数のAWSサービスをつなぎ合わせて複雑なワークフローを作成します。視覚的なインターフェースを使って、ステートマシンを構築し、エラー処理や分岐ロジックを組み込むことができます。
+- AWS Step Functions タスク
+- Step Functions 状態
+- Step Functions ステートマシンコード
+- AWS Step Functions ワークフロー
 
 ## **クラウド財務管理サービス**
 
@@ -94,6 +124,7 @@ Amazon EC2は、仮想サーバー（インスタンス）を提供するサー�
 
 ### **AWS Lambda**
 AWS Lambdaは、サーバーレスコンピューティングサービスで、コードをイベント駆動で実行します。インフラの管理が不要で、必要な時にだけリソースを使用するため、コスト効率が高いのが特徴です。
+- lambda レイヤー
 
 ### **AWS Serverless Application Model (AWS SAM)**
 AWS SAMは、サーバーレスアプリケーションを定義するためのフレームワークです。SAMテンプレートを使って、Lambda、API Gateway、DynamoDBなどのリソースを簡単にデプロイできます。
@@ -130,13 +161,28 @@ Amazon Neptuneは、グラフデータベースサービスです。プロパテ
 
 ### **Amazon RDS**
 Amazon RDSは、リレーショナルデータベースの設定、運用、スケーリングを自動化するサービスです。MySQL、PostgreSQL、MariaDB、Oracle、SQL Serverなど、複数のエンジンをサポートしています。
+- Amazon RDS パフォーマンスインサイト
 
 ### **Amazon Redshift**
 Amazon Redshiftは、データウェアハウスサービスで、大規模なデータセットに対する高速なクエリ処理を提供します。クラスター内の並列処理を活用し、クエリパフォーマンスを最大化します。
 - 分散スタイル
 - Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
 - Amazon Redshift Serverless : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+- Amazon Redshiftフェデレーテッドクエリ
 - データ共有
+- マテリアライズドビュー
+- Amazon Redshift Data API
+- ワークロード管理 (WLM) キュー
+- クラスター ノード
+- SQL クエリを実行したデータの変換 (Amazon Redshift ストアドプロシージャなど)
+- Redshift テーブルビュー
+    - STL_ALERT_EVENT_LOG
+- Amazon Redshift のクエリエディタ v2
+- Amazon Redshift コマンド
+    - VACUUM
+- Amazon Redshift マニフェストファイル
+- ステージング Redshift テーブル
+- テーブルの複合ソートキー
 
 ## **デベロッパーツール**
 
@@ -212,6 +258,7 @@ AWS DMSは、データベースをAWSに移行するためのサービスです�
         - ソースのレイテンシー : CDCLatencySource メトリクス
         - ターゲットのレイテンシー : CDCLatencyTarget メトリクス
 
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Troubleshooting_Latency.html
 ### **AWS DataSync**
 AWS DataSyncは、オンプレミスのデータをAWSに移行するためのサービスです。大量のデータを効率的に転送し、継続的な同期も可能です。
 
@@ -249,6 +296,7 @@ AWS IAMは、ユーザーやグループに対してAWSリソースへのアク�
 
 ### **AWS Key Management Service (AWS KMS)**
 AWS KMSは、暗号化キーの作成、管理、使用をサポートするマネージドサービスです。データの暗号化と保護を簡単に実現します。
+- AWS KMS キーを使用したデュアルレイヤーのサーバー側暗号化 (DSSE-KMS)
 
 ### **Amazon Macie**
 Amazon Macieは、機械学習を使用して、機密データの検出と保護を行うサービスです。S3バケット内のPII（個人を特定できる情報）などを自動的に識別し、セキュリティリスクを可視化します。
@@ -269,6 +317,7 @@ AWS Backupは、AWSリソースのバックアップを一元的に管理する�
 
 ### **Amazon Elastic Block Store (Amazon EBS)**
 Amazon EBSは、EC2インスタンスに接続されるブロックストレージサービスです。高性能でスケーラブルなストレージを提供し、バックアップやリストアも容易に行えます。
+- EBS ボリュームタイプ
 
 ### **Amazon Elastic File System (Amazon EFS)**
 Amazon EFSは、NFS互換のファイルストレージサービスです。複数のEC2インスタンスからアクセスできるスケーラブルなファイルシステムを提供します。
@@ -277,5 +326,10 @@ Amazon EFSは、NFS互換のファイルストレージサービスです。複�
 Amazon S3は、オブジェクトストレージサービスで、大量のデータを安全に保存できます。スケーラビリティと耐久性に優れており、データのバックアップやアーカイブに適しています。
 - Amazon S3 Storage Lens : Amazon S3バケットとオブジェクトのストレージメトリクスを可視化して分析できるツール。
 - Amazon S3 Object Lambda : Amazon S3バケットからデータを取得する際に、AWS Lambda関数を使ってデータをリアルタイムで動的に処理・変換できる機能。
+- S3 ストレージクラス
+- S3 アクセス アナライザー
+- S3 Select
+- S3 バージョン管理
 ### **Amazon S3 Glacier**
 Amazon S3 Glacierは、長期アーカイブ向けの低コストなストレージサービスです。データのリストアは、数分から数時間で行えるオプションが用意されています。
+- Amazon S3 Glacier Select
