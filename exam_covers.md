@@ -1,3 +1,6 @@
+参考
+https://tech.nri-net.com/entry/aws_certified_data_engineer_associate
+
 - Apache Hadoop
 - Apache Spark
 
@@ -11,10 +14,17 @@ Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存�
 - **[Amazon Athena フェデレーテッドクエリ](https://aws.amazon.com/jp/blogs/news/query-any-data-source-with-amazon-athenas-new-federated-query/)** : Athenaを使用してAmazon S3以外のデータソースにもクエリを実行できる機能です。これにより、Redshift、RDS、さらには外部のオンプレミスデータベースなど、さまざまなデータソースに対してSQLクエリを実行し、統合的にデータを分析できます。フェデレーテッドクエリを利用することで、複数のデータソースをシームレスに接続し、統一的な分析を実現します。
 - **[Amazon Athena クエリ結果の再利用機能](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/reusing-query-results.html)** : 同一のクエリが複数回実行される際に、以前の結果を再利用することでコスト削減とクエリの応答時間短縮を実現する機能。クエリが再利用されるとAthenaは既存の結果を返し、不要な計算を避けることができる。この機能は、クエリの実行状況に基づいて自動的に適用され、データ分析効率を向上させる。
 - SQL クエリのパフォーマンス
+- [**Athena の問題のトラブルシューティング**](https://docs.aws.amazon.com/athena/latest/ug/troubleshooting-athena.html#troubleshooting-athena-create-table-as-select-ctas)
+- https://docs.aws.amazon.com/athena/latest/ug/ctas.html
+- https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format
+- https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark-getting-started.html
 
 ### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
 Amazon EMR (Elastic MapReduce)は、ビッグデータ処理と分析のためのフルマネージドクラウドサービス。ユーザーはApache Hadoop、Apache Spark、Prestoなどのフレームワークを使用して膨大なデータを分散処理できる。EMRは柔軟なスケーリング、コスト効率、そしてセキュリティの統合を提供し、データの収集、処理、分析が容易となる。また、オンデマンドやスポットインスタンスを利用して、リソースの最適な利用が可能。EMRクラスターは、複数のAmazon EC2インスタンス（仮想マシン）で構成され、各インスタンスが「ノード」として機能する。
 - [**ノードタイプ**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-overview.html#emr-overview-clusters) : Amazon EMRのノードタイプには「プライマリーノード」「コアノード」「タスクノード」がある。
+- [**Apache Hive メタストアを Amazon EMR に移行してデプロイする**](https://aws.amazon.com/jp/blogs/news/migrate-and-deploy-your-apache-hive-metastore-on-amazon-emr/)
+- [**セキュリティとアクセス制御**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-data-encryption-options.html)
+- [**サポートされるアプリケーションと機能**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-plan-ha-applications.html)
 
 ### **AWS Glue**
 AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス。データを整理し、分析用のデータレイクやデータウェアハウスにロードするためのツールセットを提供している。Glueはデータカタログを利用して、データの発見、管理、クエリを簡素化。
@@ -22,11 +32,9 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - **[大きなグループの入力ファイルの読み取り](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/grouping-input-files.html)** : テーブルのプロパティを設定することで、Amazon S3に保存されている多数の小さなファイルをグループ化し、ETLジョブの効率を向上させることができる。これにより、各ETLタスクが一度に複数のファイルを単一のインメモリパーティションに読み取ることができるため処理が効率化される。
 - [**AWS Glue Data Quality**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/glue-data-quality.html) : データ品質を管理および監視するための機能を提供するサービス。ETL（抽出、変換、ロード）ジョブを実行する際に、データの品質を自動的に評価し、定義されたルールセットに基づいてデータが基準を満たしているかどうかを確認できる。Data Qualityは、ルールの作成、実行、および評価をサポートし、異常を検出して修正するための手段を提供している。
 - [**AWS Lake Formation FindMatches によるレコードのマッチング**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/machine-learning.html) : 重複したレコードや一致するレコードを識別するための機械学習ベースの変換機能。FindMatchesは、異なるデータセット間で似たレコードを特定し、クレンジングや統合のプロセスを簡素化する。FindMatchesはトレーニングされたモデルを使って、一意の識別子がない場合でもレコードを一致させることができ、データの重複を排除したり、データの品質を向上させるために役立つ。
-- AWS Glue スキーマレジストリ
-- AWS Glue ワークロード
-- AWS Glue ワークフロー
-- AWS Glue データカタログ
-    - 中央メタデータリポジトリ
+- [**AWS Glue スキーマレジストリ**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/schema-registry.html) : データストリームのスキーマを管理するためのサーバーレス機能。このレジストリを使用すると、データストリーム（例えば、Apache Kafka、Amazon Kinesisなど）で扱うデータのスキーマを中央で一元管理し、スキーマの進化を追跡できる。
+- [**AWS Glue ワークフロー**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/workflows_overview.html) : 複数のクローラ、ジョブ、トリガーを組み合わせて、複雑なETL（抽出、変換、ロード）アクティビティを管理および可視化するための機能。各ワークフローは、含まれる全てのジョブとクローラの実行状況と進捗を記録し、グラフィカルに表示する。ワークフローは設計図から作成でき、コンソールやAPIを使って手動で構築することもでき、トリガーを活用して依存関係のあるジョブやクローラの自動実行が可能。
+- **[AWS Glue データカタログ](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/manage-catalog.html)** : Amazon S3データセットの構造メタデータと運用メタデータを保存する中央メタデータリポジトリ。データカタログを適切に管理することでデータ品質、パフォーマンス、セキュリティ、ガバナンスを維持できる。
 - AWS Glue クローラー
 - パーティションインデックス
 - AWS Glue 接続
@@ -43,6 +51,7 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - FindMatches 機械学習 (ML) 変換
 - AWS Glue PySpark ジョブ
 - AWS Glue Python シェルジョブ
+- [API を使用したデータ品質の測定および管理](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/data-quality-using-apis.html)
 
 ### **AWS Glue DataBrew**
 AWS Glue DataBrewは、コードを書くことなくデータのクレンジング、正規化、プロファイリングを行うためのビジュアルインターフェースを提供します。ETLジョブを作成する前に、データの準備を簡単に行うことができます。
@@ -50,6 +59,7 @@ AWS Glue DataBrewは、コードを書くことなくデータのクレンジン
     - COUNT_DISTINCT : 選択したソース列の個別の値の合計数を新しい列に返す。
 - コーディング
     - NEST_TO_MAP 変換
+- [**AWS Glue DataBrew でのデータ品質の検証**](https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-rules.html)
 
 ### **AWS Lake Formation**
 AWS Lake Formationは、安全でスケーラブルなデータレイクの作成、管理を簡素化するサービスです。S3を基盤とし、さまざまなデータソースからデータを取り込み、統合するためのツールを提供します。また、データガバナンスやアクセス制御の管理を行いやすくする機能もあります。
@@ -65,6 +75,7 @@ Amazon Kinesis Data Streamsは、リアルタイムのストリーミングデ�
 - Kinesis Client Library (KCL) :
 - シャードの負荷
     - WriteThroughputExceeded
+- [**Amazon CloudWatch で Amazon Kinesis Data Streams サービスを監視する**](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html)
 
 ### **Amazon Managed Service for Apache Flink**
 Amazon Managed Service for Apache Flinkは、Apache Flinkを管理された環境で提供し、リアルタイムのデータストリーム処理を実現します。スケーラビリティが高く、データの変換や集計をリアルタイムで行うことが可能です。
@@ -99,10 +110,10 @@ Amazon SNSは、プッシュ型のメッセージングサービスで、アプ�
 Amazon SQSは、分散メッセージキューイングサービスで、メッセージの送受信を非同期に行うことができます。アプリケーション間のデカップリングや、処理の並列化を容易にするために使用されます。
 - SQS デッドレターキュー
 
-### **AWS Step Functions**
+### [**AWS Step Functions**](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/welcome.html)
 AWS Step Functionsは、ワークフローオーケストレーションサービスで、複数のAWSサービスをつなぎ合わせて複雑なワークフローを作成します。視覚的なインターフェースを使って、ステートマシンを構築し、エラー処理や分岐ロジックを組み込むことができます。
 - AWS Step Functions タスク
-- Step Functions 状態
+- [**Step Functions 状態**](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-states.html)
 - Step Functions ステートマシンコード
 - AWS Step Functions ワークフロー
 
@@ -162,6 +173,7 @@ Amazon Neptuneは、グラフデータベースサービスです。プロパテ
 ### **Amazon RDS**
 Amazon RDSは、リレーショナルデータベースの設定、運用、スケーリングを自動化するサービスです。MySQL、PostgreSQL、MariaDB、Oracle、SQL Serverなど、複数のエンジンをサポートしています。
 - Amazon RDS パフォーマンスインサイト
+- [**Amazon RDSリソースの暗号化**](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)
 
 ### **Amazon Redshift**
 Amazon Redshiftは、データウェアハウスサービスで、大規模なデータセットに対する高速なクエリ処理を提供します。クラスター内の並列処理を活用し、クエリパフォーマンスを最大化します。
@@ -178,11 +190,13 @@ Amazon Redshiftは、データウェアハウスサービスで、大規模な�
 - Redshift テーブルビュー
     - STL_ALERT_EVENT_LOG
 - Amazon Redshift のクエリエディタ v2
-- Amazon Redshift コマンド
-    - VACUUM
 - Amazon Redshift マニフェストファイル
 - ステージング Redshift テーブル
 - テーブルの複合ソートキー
+- [**VACUUM**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_VACUUM_command.html)
+- [**EXTRACT 関数**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_EXTRACT_function.html)
+- [**Amazon Redshift ストリーミング取り込みによるリアルタイム分析**](https://aws.amazon.com/jp/blogs/big-data/real-time-analytics-with-amazon-redshift-streaming-ingestion/)
+- [**Amazon Redshift データ API を使用して Amazon Redshift クラスターを操作する**](https://aws.amazon.com/jp/blogs/big-data/using-the-amazon-redshift-data-api-to-interact-with-amazon-redshift-clusters/)
 
 ## **デベロッパーツール**
 
@@ -296,7 +310,8 @@ AWS IAMは、ユーザーやグループに対してAWSリソースへのアク�
 
 ### **AWS Key Management Service (AWS KMS)**
 AWS KMSは、暗号化キーの作成、管理、使用をサポートするマネージドサービスです。データの暗号化と保護を簡単に実現します。
-- AWS KMS キーを使用したデュアルレイヤーのサーバー側暗号化 (DSSE-KMS)
+- [**AWS KMS キーによる二層式サーバー側の暗号化 (DSSE-KMS) の使用**](https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/UsingDSSEncryption.html)
+- [**AWS KMS キーによるサーバー側暗号化 (SSE-KMS) の使用**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html)
 
 ### **Amazon Macie**
 Amazon Macieは、機械学習を使用して、機密データの検出と保護を行うサービスです。S3バケット内のPII（個人を特定できる情報）などを自動的に識別し、セキュリティリスクを可視化します。
@@ -317,7 +332,7 @@ AWS Backupは、AWSリソースのバックアップを一元的に管理する�
 
 ### **Amazon Elastic Block Store (Amazon EBS)**
 Amazon EBSは、EC2インスタンスに接続されるブロックストレージサービスです。高性能でスケーラブルなストレージを提供し、バックアップやリストアも容易に行えます。
-- EBS ボリュームタイプ
+- [**Amazon Elastic Volumes EBS を使用してボリュームを変更する**](https://docs.aws.amazon.com/ja_jp/ebs/latest/userguide/ebs-modify-volume.html)
 
 ### **Amazon Elastic File System (Amazon EFS)**
 Amazon EFSは、NFS互換のファイルストレージサービスです。複数のEC2インスタンスからアクセスできるスケーラブルなファイルシステムを提供します。
@@ -330,6 +345,9 @@ Amazon S3は、オブジェクトストレージサービスで、大量のデ�
 - S3 アクセス アナライザー
 - S3 Select
 - S3 バージョン管理
+- [**Amazon S3 Object Lambda のご紹介 – S3 から取得されるデータをコードで処理**](https://aws.amazon.com/jp/blogs/aws/introducing-amazon-s3-object-lambda-use-your-code-to-process-data-as-it-is-being-retrieved-from-s3/)
+- [**Amazon S3 イベント通知**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html)
+
 ### **Amazon S3 Glacier**
 Amazon S3 Glacierは、長期アーカイブ向けの低コストなストレージサービスです。データのリストアは、数分から数時間で行えるオプションが用意されています。
 - Amazon S3 Glacier Select
