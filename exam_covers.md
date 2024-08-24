@@ -20,7 +20,10 @@ Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存�
 - [**クエリ結果を別の形式で書き込む**](https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format)
 - [**Amazon Athena で Apache Spark を開始**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/notebooks-spark-getting-started.html)
 - [**列指向ストレージ形式とは**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/columnar-storage.html)
+<<<<<<< HEAD
 - [**MSCK REPAIR TABLE**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/msck-repair-table.html)
+=======
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 
 ### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
 Amazon EMR (Elastic MapReduce)は、ビッグデータ処理と分析のためのフルマネージドクラウドサービス。ユーザーはApache Hadoop、Apache Spark、Prestoなどのフレームワークを使用して膨大なデータを分散処理できる。EMRは柔軟なスケーリング、コスト効率、そしてセキュリティの統合を提供し、データの収集、処理、分析が容易となる。また、オンデマンドやスポットインスタンスを利用して、リソースの最適な利用が可能。EMRクラスターは、複数のAmazon EC2インスタンス（仮想マシン）で構成され、各インスタンスが「ノード」として機能する。
@@ -171,7 +174,10 @@ Amazon DocumentDBは、MongoDB互換のドキュメントデータベースサ�
 ### **Amazon DynamoDB**
 Amazon DynamoDBは、キーと値のペアを保存するNoSQLデータベースサービスです。ミリ秒単位のレスポンスが求められるアプリケーションに適しており、スケーラブルで高パフォーマンスなデータストアを提供します。
 - [**DynamoDB Auto Scaling によるスループットキャパシティの自動管理**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/AutoScaling.html)
+<<<<<<< HEAD
 - [**PartiQL: Amazon DynamoDB 用の SQL 互換クエリ言語**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/ql-reference.html)
+=======
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 
 ### **Amazon Keyspaces (Apache Cassandra向け)**
 Amazon Keyspacesは、Apache Cassandra互換のマネージドデータベースサービスです。Cassandra APIを使用して、スケーラブルで高可用性のデータベースを運用できます。
@@ -192,7 +198,11 @@ Amazon Redshiftは、データウェアハウスサービスで、大規模な�
 - [**分散スタイル**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html)
 - Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
 - [**Amazon Redshift Serverless**](https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/working-with-serverless.html) : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+<<<<<<< HEAD
 - [**Amazon Redshift のフェデレーテッドクエリによるデータのクエリ**](https://docs.aws.amazon.com/redshift/latest/dg/federated-overview.html)
+=======
+- Amazon Redshiftフェデレーテッドクエリ
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 - データ共有
 - [**Amazon Redshift でのマテリアライズドビューの作成**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/materialized-view-overview.html)
 - Amazon Redshift Data API
