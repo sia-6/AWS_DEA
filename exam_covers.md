@@ -11,13 +11,16 @@ Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存�
 - **[ワークグループの仕組み
 ](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/user-created-workgroups.html)** : Amazon Athenaのワークグループは、クエリの実行環境を分離し、管理するための機能。各アカウントにはデフォルトでプライマリワークグループがあり、他のワークグループを作成できる。ワークグループごとにクエリ履歴や設定が独立しており、他のワークグループのクエリには影響を与えない。ワークグループを無効にするとクエリは実行できなくなり、必要な設定を強制的に適用することもできる。
 - **[Amazon Athena でのパーティション射影 (Partition Projection)](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/partition-projection.html)** : 高度にパーティション化されたテーブルのクエリパフォーマンスを改善するための機能。AWS Glueのテーブルプロパティを使用して、Athenaがパーティション情報を「射影」することで、パーティションの検索や管理が迅速化される。これによりクエリの実行時間が短縮され、パーティション管理が自動化され、パーティションプルーニングを行うことで必要なパーティションのみをクエリに適用し効率をさらに高める。
-- **[Amazon Athena フェデレーテッドクエリ](https://aws.amazon.com/jp/blogs/news/query-any-data-source-with-amazon-athenas-new-federated-query/)** : Athenaを使用してAmazon S3以外のデータソースにもクエリを実行できる機能です。これにより、Redshift、RDS、さらには外部のオンプレミスデータベースなど、さまざまなデータソースに対してSQLクエリを実行し、統合的にデータを分析できます。フェデレーテッドクエリを利用することで、複数のデータソースをシームレスに接続し、統一的な分析を実現します。
+- **[Amazon Athena フェデレーテッドクエリを使用する](https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html)** : Athenaを使用してAmazon S3以外のデータソースにもクエリを実行できる機能です。これにより、Redshift、RDS、さらには外部のオンプレミスデータベースなど、さまざまなデータソースに対してSQLクエリを実行し、統合的にデータを分析できます。フェデレーテッドクエリを利用することで、複数のデータソースをシームレスに接続し、統一的な分析を実現します。
+- [**Amazon Athenaの新しいフェデレーテッド・クエリによる複数データソースの検索**](https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html)
 - **[Amazon Athena クエリ結果の再利用機能](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/reusing-query-results.html)** : 同一のクエリが複数回実行される際に、以前の結果を再利用することでコスト削減とクエリの応答時間短縮を実現する機能。クエリが再利用されるとAthenaは既存の結果を返し、不要な計算を避けることができる。この機能は、クエリの実行状況に基づいて自動的に適用され、データ分析効率を向上させる。
 - SQL クエリのパフォーマンス
 - [**Athena の問題のトラブルシューティング**](https://docs.aws.amazon.com/athena/latest/ug/troubleshooting-athena.html#troubleshooting-athena-create-table-as-select-ctas)
-- https://docs.aws.amazon.com/athena/latest/ug/ctas.html
-- https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format
-- https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark-getting-started.html
+- [**クエリ結果からのテーブルの作成 (CTAS)**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/ctas.html)
+- [**クエリ結果を別の形式で書き込む**](https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format)
+- [**Amazon Athena で Apache Spark を開始**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/notebooks-spark-getting-started.html)
+- [**列指向ストレージ形式とは**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/columnar-storage.html)
+- [**MSCK REPAIR TABLE**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/msck-repair-table.html)
 
 ### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
 Amazon EMR (Elastic MapReduce)は、ビッグデータ処理と分析のためのフルマネージドクラウドサービス。ユーザーはApache Hadoop、Apache Spark、Prestoなどのフレームワークを使用して膨大なデータを分散処理できる。EMRは柔軟なスケーリング、コスト効率、そしてセキュリティの統合を提供し、データの収集、処理、分析が容易となる。また、オンデマンドやスポットインスタンスを利用して、リソースの最適な利用が可能。EMRクラスターは、複数のAmazon EC2インスタンス（仮想マシン）で構成され、各インスタンスが「ノード」として機能する。
@@ -40,10 +43,10 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - AWS Glue 接続
 - AWS Glue トリガー
     - オンデマンドトリガー
-- AWS Glue ジョブ
-    - [**ジョブ ブックマーク**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html) : AWS Glueが以前に処理したデータを記憶し、ジョブの再実行時にそのデータをスキップする機能。すでに処理されたデータの再処理を防ぎ、ETLジョブの効率を向上させる。特に大規模なデータ処理において処理時間とコストを削減するのに有効。
+- [**AWS Glue ジョブ**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-api-jobs-job.html)
+- [**ジョブ ブックマーク**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html) : AWS Glueが以前に処理したデータを記憶し、ジョブの再実行時にそのデータをスキップする機能。すでに処理されたデータの再処理を防ぎ、ETLジョブの効率を向上させる。特に大規模なデータ処理において処理時間とコストを削減するのに有効。
     - コミットステートメント　(job.commit()): ジョブが正常に終了した際にジョブブックマークを更新するための機能。次回のジョブ実行時にどこまでデータが処理されたかを正確に追跡し、重複処理を防ぐ。コミットステートメントを使用することで、データ処理の整合性と効率性が向上する。
-- [**Flex の実行オプション**](https://aws.amazon.com/jp/about-aws/whats-new/2022/08/aws-glue-supports-flex-execution-option/) : コストを最大34%削減できる実行モード。緊急度が低く、すぐに開始する必要のないデータ統合ワークロードに最適で、AWSの予備キャパシティーを使用して実行される。ジョブの開始時間や実行時間は変動する可能性があるが、通常のジョブ機能はそのまま利用できる。重要なワークロードには通常のオプションを、急を要しないワークロードにはFlexを利用することで、コスト効率を最大化できる。
+- [**AWS Glue Flex ジョブのご紹介: ETL ワークロードのコスト削減**](https://aws.amazon.com/jp/blogs/big-data/introducing-aws-glue-flex-jobs-cost-savings-on-etl-workloads/) : Flex と呼ばれるAWS Glueジョブ実行クラスは、コストを最大34%削減できる実行モード。緊急度が低く、すぐに開始する必要のないデータ統合ワークロードに最適で、AWSの予備キャパシティーを使用して実行される。ジョブの開始時間や実行時間は変動する可能性があるが、通常のジョブ機能はそのまま利用できる。重要なワークロードには通常のオプションを、急を要しないワークロードにはFlexを利用することで、コスト効率を最大化できる。
 - [**AWS Glue でSparkジョブのジョブプロパティを構成する**](https://docs.aws.amazon.com/glue/latest/dg/add-job.html)
 - AWS Glue Studio
     - Detect PII 変換
@@ -51,7 +54,9 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - FindMatches 機械学習 (ML) 変換
 - AWS Glue PySpark ジョブ
 - AWS Glue Python シェルジョブ
-- [API を使用したデータ品質の測定および管理](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/data-quality-using-apis.html)
+- [**API を使用したデータ品質の測定および管理**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/data-quality-using-apis.html)
+- [**Apache Iceberg と AWS Glue を使用してデータレイクに CDC ベースの UPSERT を実装する**](https://aws.amazon.com/jp/blogs/big-data/implement-a-cdc-based-upsert-in-a-data-lake-using-apache-iceberg-and-aws-glue/)
+- [**[行から列へのピボット] 変換の使用**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/transforms-pivot-rows-to-columns.html)
 
 ### **AWS Glue DataBrew**
 AWS Glue DataBrewは、コードを書くことなくデータのクレンジング、正規化、プロファイリングを行うためのビジュアルインターフェースを提供します。ETLジョブを作成する前に、データの準備を簡単に行うことができます。
@@ -65,6 +70,7 @@ AWS Glue DataBrewは、コードを書くことなくデータのクレンジン
 AWS Lake Formationは、安全でスケーラブルなデータレイクの作成、管理を簡素化するサービスです。S3を基盤とし、さまざまなデータソースからデータを取り込み、統合するためのツールを提供します。また、データガバナンスやアクセス制御の管理を行いやすくする機能もあります。
 - 行レベルのフィルター : データベースやデータレイク内で特定の条件に基づいてユーザーがアクセスできるデータの行を制限する機能。データセット全体を保持しながら、特定のユーザーが特定の行にアクセスできないように制御できる。
 - FindMatches変換 : データの重複レコードを機械学習によって自動的に検出し、類似したデータをリンクするための機能。
+- [**Lake Formation 許可へのオンボーディング**](https://docs.aws.amazon.com/ja_jp/lake-formation/latest/dg/onboarding-lf-permissions.html)
 
 ### **Amazon Kinesis Data Firehose**
 Amazon Kinesis Data Firehoseは、リアルタイムでストリーミングデータを取り込み、S3、Redshift、Elasticsearch Service、Splunkなどに送信するサービスです。データの変換やバッファリングもサポートしています。
@@ -76,6 +82,8 @@ Amazon Kinesis Data Streamsは、リアルタイムのストリーミングデ�
 - シャードの負荷
     - WriteThroughputExceeded
 - [**Amazon CloudWatch で Amazon Kinesis Data Streams サービスを監視する**](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html)
+- [**Kinesis Data Streams を使用したクロスアカウントクロスリージョンログデータ共有**](https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/CrossAccountSubscriptions-Kinesis.html)
+- [**Amazon Kinesis Data Streams で AWS Lambda を使用する**](https://docs.aws.amazon.com/ja_jp/streams/latest/dev/tutorial-stock-data-lambda.html)
 
 ### **Amazon Managed Service for Apache Flink**
 Amazon Managed Service for Apache Flinkは、Apache Flinkを管理された環境で提供し、リアルタイムのデータストリーム処理を実現します。スケーラビリティが高く、データの変換や集計をリアルタイムで行うことが可能です。
@@ -89,11 +97,11 @@ Amazon OpenSearch Serviceは、リアルタイムの検索、ログ分析、モ�
 
 ### **Amazon QuickSight**
 Amazon QuickSightは、クラウド上のBI（ビジネスインテリジェンス）サービスです。データの可視化やダッシュボードの作成を行い、ビジネスインサイトを迅速に得るためのツールを提供します。QuickSightは、S3、Redshift、Athenaなどのデータソースと統合されており、インタラクティブな分析が可能です。
-- QuickSight SPICE
+- [**SPICE へのデータのインポート**](https://docs.aws.amazon.com/ja_jp/quicksight/latest/user/spice.html)
 
 ## **アプリケーション統合サービス**
 
-### **Amazon AppFlow**
+### [**Amazon AppFlow**](https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html)
 Amazon AppFlowは、SaaSアプリケーションとAWSサービス間でデータを安全かつ容易に転送するためのマネージドサービスです。ノーコードでデータフローを構築し、データの変換、検証、フィルタリングなども行うことができます。
 
 ### **Amazon EventBridge**
@@ -105,6 +113,7 @@ Amazon MWAAは、Apache Airflowをマネージドサービスとして提供し�
 - 
 ### **Amazon Simple Notification Service (Amazon SNS)**
 Amazon SNSは、プッシュ型のメッセージングサービスで、アプリケーション間での通知やアラートを実現します。SNSは、メッセージを複数のサブスクライバーに同時に送信でき、モバイルアプリケーションやエンドユーザーに通知を配信するのに適しています。
+- [**CloudWatchを使用した Amazon SNS トピックのモニタリング**](https://docs.aws.amazon.com/ja_jp/sns/latest/dg/sns-monitoring-using-cloudwatch.html)
 
 ### **Amazon Simple Queue Service (Amazon SQS)**
 Amazon SQSは、分散メッセージキューイングサービスで、メッセージの送受信を非同期に行うことができます。アプリケーション間のデカップリングや、処理の並列化を容易にするために使用されます。
@@ -136,6 +145,7 @@ Amazon EC2は、仮想サーバー（インスタンス）を提供するサー�
 ### **AWS Lambda**
 AWS Lambdaは、サーバーレスコンピューティングサービスで、コードをイベント駆動で実行します。インフラの管理が不要で、必要な時にだけリソースを使用するため、コスト効率が高いのが特徴です。
 - lambda レイヤー
+- [**実行ロールを使用した Lambda 関数のアクセス許可の定義**](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-intro-execution-role.html)
 
 ### **AWS Serverless Application Model (AWS SAM)**
 AWS SAMは、サーバーレスアプリケーションを定義するためのフレームワークです。SAMテンプレートを使って、Lambda、API Gateway、DynamoDBなどのリソースを簡単にデプロイできます。
@@ -160,6 +170,8 @@ Amazon DocumentDBは、MongoDB互換のドキュメントデータベースサ�
 
 ### **Amazon DynamoDB**
 Amazon DynamoDBは、キーと値のペアを保存するNoSQLデータベースサービスです。ミリ秒単位のレスポンスが求められるアプリケーションに適しており、スケーラブルで高パフォーマンスなデータストアを提供します。
+- [**DynamoDB Auto Scaling によるスループットキャパシティの自動管理**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/AutoScaling.html)
+- [**PartiQL: Amazon DynamoDB 用の SQL 互換クエリ言語**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/ql-reference.html)
 
 ### **Amazon Keyspaces (Apache Cassandra向け)**
 Amazon Keyspacesは、Apache Cassandra互換のマネージドデータベースサービスです。Cassandra APIを使用して、スケーラブルで高可用性のデータベースを運用できます。
@@ -177,12 +189,12 @@ Amazon RDSは、リレーショナルデータベースの設定、運用、ス�
 
 ### **Amazon Redshift**
 Amazon Redshiftは、データウェアハウスサービスで、大規模なデータセットに対する高速なクエリ処理を提供します。クラスター内の並列処理を活用し、クエリパフォーマンスを最大化します。
-- 分散スタイル
+- [**分散スタイル**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html)
 - Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
-- Amazon Redshift Serverless : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
-- Amazon Redshiftフェデレーテッドクエリ
+- [**Amazon Redshift Serverless**](https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/working-with-serverless.html) : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+- [**Amazon Redshift のフェデレーテッドクエリによるデータのクエリ**](https://docs.aws.amazon.com/redshift/latest/dg/federated-overview.html)
 - データ共有
-- マテリアライズドビュー
+- [**Amazon Redshift でのマテリアライズドビューの作成**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/materialized-view-overview.html)
 - Amazon Redshift Data API
 - ワークロード管理 (WLM) キュー
 - クラスター ノード
@@ -197,6 +209,8 @@ Amazon Redshiftは、データウェアハウスサービスで、大規模な�
 - [**EXTRACT 関数**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_EXTRACT_function.html)
 - [**Amazon Redshift ストリーミング取り込みによるリアルタイム分析**](https://aws.amazon.com/jp/blogs/big-data/real-time-analytics-with-amazon-redshift-streaming-ingestion/)
 - [**Amazon Redshift データ API を使用して Amazon Redshift クラスターを操作する**](https://aws.amazon.com/jp/blogs/big-data/using-the-amazon-redshift-data-api-to-interact-with-amazon-redshift-clusters/)
+- [**Amazon S3 からデータをロードする**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Loading-data-from-S3.html)
+- [**データを Amazon S3 にアンロードする**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Unloading_tables.html)
 
 ## **デベロッパーツール**
 
@@ -209,7 +223,7 @@ AWS Cloud9は、クラウドベースの統合開発環境（IDE）です。コ�
 ### **AWS Cloud Development Kit (AWS CDK)**
 AWS CDKは、プログラミング言語を使用してAWSリソースを定義し、デプロイするためのフレームワークです。インフラストラクチャをコードとして記述し、管理することができます。
 
-### **AWS CodeBuild**
+### [**AWS CodeBuild**](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/welcome.html)
 AWS CodeBuildは、ソースコードのビルドとテストを行うマネージドサービスです。複数のビルド環境に対応しており、継続的インテグレーション（CI）パイプラインの構築に利用されます。
 
 ### **AWS CodeCommit**
@@ -225,6 +239,7 @@ AWS CodePipelineは、ビルド、テスト、デプロイメントのプロセ�
 
 ### **Amazon API Gateway**
 Amazon API Gatewayは、APIの作成、管理、デプロイを簡素化するサービスです。バックエンドサービスへのアクセスを制御し、APIをセキュアに公開できます。
+- [**API Gateway で Lambda を使用する**](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/services-apigateway-tutorial.html)
 
 ## **機械学習**
 
@@ -253,6 +268,7 @@ Amazon Managed Grafanaは、Grafanaをマネージドサービスとして提供
 
 ### **AWS Systems Manager**
 AWS Systems Managerは、AWSリソースの運用管理を一元化するサービスです。インスタンスのパッチ適用、設定管理、自動化スクリプトの実行を行います。
+- [**AWS Systems Manager Parameter Store**](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/systems-manager-parameter-store.html)
 
 ### **AWS Well-Architected Tool**
 AWS Well-Architected Toolは、AWSのベストプラクティスに基づいたシステム設計のレビューを行うツールです。セキュリティ、パフォーマンス、コスト効率などの観点から、システムを評価します。
@@ -302,6 +318,8 @@ Amazon Route 53は、スケーラブルで信頼性の高いDNSウェブサー�
 Amazon VPCは、AWSクラウド内に論理的に分離された仮想ネットワークを作成するサービスです。ネットワーク設定を柔軟に管理でき、セキュリティとスケーラビリティに優れたインフラストラクチャを構築できます。
 - Gatewayエンドポイント : VPCのルートテーブルにエントリを追加することで、指定されたAWSサービスへのアクセスを可能にする。VPC内のサブネットから、指定されたサービスへの直接的な通信を提供する。
 - Interfaceエンドポイント : AWS PrivateLinkを使用し、VPC内にエラスティックネットワークインターフェイス（ENI）を作成し、このENIを通じてAWSサービスへの通信を行う。
+- [**Amazon S3 のゲートウェイエンドポイント**](https://docs.aws.amazon.com/ja_jp/vpc/latest/privatelink/vpc-endpoints-s3.html)
+- [**ネットワークアクセスコントロールリストを使用して、サブネットのトラフィックを制御する**](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-network-acls.html)
 
 ## **セキュリティ、アイデンティティ、コンプライアンス**
 
