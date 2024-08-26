@@ -20,6 +20,10 @@ Amazon Athenaは、サーバーレスのクエリサービスで、S3に保存�
 - [**クエリ結果を別の形式で書き込む**](https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format)
 - [**Amazon Athena で Apache Spark を開始**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/notebooks-spark-getting-started.html)
 - [**列指向ストレージ形式とは**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/columnar-storage.html)
+<<<<<<< HEAD
+- [**MSCK REPAIR TABLE**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/msck-repair-table.html)
+=======
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 
 ### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
 Amazon EMR (Elastic MapReduce)は、ビッグデータ処理と分析のためのフルマネージドクラウドサービス。ユーザーはApache Hadoop、Apache Spark、Prestoなどのフレームワークを使用して膨大なデータを分散処理できる。EMRは柔軟なスケーリング、コスト効率、そしてセキュリティの統合を提供し、データの収集、処理、分析が容易となる。また、オンデマンドやスポットインスタンスを利用して、リソースの最適な利用が可能。EMRクラスターは、複数のAmazon EC2インスタンス（仮想マシン）で構成され、各インスタンスが「ノード」として機能する。
@@ -42,10 +46,10 @@ AWS Glueは、サーバーレスのETL（Extract, Transform, Load）サービス
 - AWS Glue 接続
 - AWS Glue トリガー
     - オンデマンドトリガー
-- AWS Glue ジョブ
-    - [**ジョブ ブックマーク**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html) : AWS Glueが以前に処理したデータを記憶し、ジョブの再実行時にそのデータをスキップする機能。すでに処理されたデータの再処理を防ぎ、ETLジョブの効率を向上させる。特に大規模なデータ処理において処理時間とコストを削減するのに有効。
+- [**AWS Glue ジョブ**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-api-jobs-job.html)
+- [**ジョブ ブックマーク**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html) : AWS Glueが以前に処理したデータを記憶し、ジョブの再実行時にそのデータをスキップする機能。すでに処理されたデータの再処理を防ぎ、ETLジョブの効率を向上させる。特に大規模なデータ処理において処理時間とコストを削減するのに有効。
     - コミットステートメント　(job.commit()): ジョブが正常に終了した際にジョブブックマークを更新するための機能。次回のジョブ実行時にどこまでデータが処理されたかを正確に追跡し、重複処理を防ぐ。コミットステートメントを使用することで、データ処理の整合性と効率性が向上する。
-- [**Flex の実行オプション**](https://aws.amazon.com/jp/about-aws/whats-new/2022/08/aws-glue-supports-flex-execution-option/) : コストを最大34%削減できる実行モード。緊急度が低く、すぐに開始する必要のないデータ統合ワークロードに最適で、AWSの予備キャパシティーを使用して実行される。ジョブの開始時間や実行時間は変動する可能性があるが、通常のジョブ機能はそのまま利用できる。重要なワークロードには通常のオプションを、急を要しないワークロードにはFlexを利用することで、コスト効率を最大化できる。
+- [**AWS Glue Flex ジョブのご紹介: ETL ワークロードのコスト削減**](https://aws.amazon.com/jp/blogs/big-data/introducing-aws-glue-flex-jobs-cost-savings-on-etl-workloads/) : Flex と呼ばれるAWS Glueジョブ実行クラスは、コストを最大34%削減できる実行モード。緊急度が低く、すぐに開始する必要のないデータ統合ワークロードに最適で、AWSの予備キャパシティーを使用して実行される。ジョブの開始時間や実行時間は変動する可能性があるが、通常のジョブ機能はそのまま利用できる。重要なワークロードには通常のオプションを、急を要しないワークロードにはFlexを利用することで、コスト効率を最大化できる。
 - [**AWS Glue でSparkジョブのジョブプロパティを構成する**](https://docs.aws.amazon.com/glue/latest/dg/add-job.html)
 - AWS Glue Studio
     - Detect PII 変換
@@ -144,6 +148,7 @@ Amazon EC2は、仮想サーバー（インスタンス）を提供するサー�
 ### **AWS Lambda**
 AWS Lambdaは、サーバーレスコンピューティングサービスで、コードをイベント駆動で実行します。インフラの管理が不要で、必要な時にだけリソースを使用するため、コスト効率が高いのが特徴です。
 - lambda レイヤー
+- [**実行ロールを使用した Lambda 関数のアクセス許可の定義**](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-intro-execution-role.html)
 
 ### **AWS Serverless Application Model (AWS SAM)**
 AWS SAMは、サーバーレスアプリケーションを定義するためのフレームワークです。SAMテンプレートを使って、Lambda、API Gateway、DynamoDBなどのリソースを簡単にデプロイできます。
@@ -169,6 +174,10 @@ Amazon DocumentDBは、MongoDB互換のドキュメントデータベースサ�
 ### **Amazon DynamoDB**
 Amazon DynamoDBは、キーと値のペアを保存するNoSQLデータベースサービスです。ミリ秒単位のレスポンスが求められるアプリケーションに適しており、スケーラブルで高パフォーマンスなデータストアを提供します。
 - [**DynamoDB Auto Scaling によるスループットキャパシティの自動管理**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/AutoScaling.html)
+<<<<<<< HEAD
+- [**PartiQL: Amazon DynamoDB 用の SQL 互換クエリ言語**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/ql-reference.html)
+=======
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 
 ### **Amazon Keyspaces (Apache Cassandra向け)**
 Amazon Keyspacesは、Apache Cassandra互換のマネージドデータベースサービスです。Cassandra APIを使用して、スケーラブルで高可用性のデータベースを運用できます。
@@ -186,10 +195,14 @@ Amazon RDSは、リレーショナルデータベースの設定、運用、ス�
 
 ### **Amazon Redshift**
 Amazon Redshiftは、データウェアハウスサービスで、大規模なデータセットに対する高速なクエリ処理を提供します。クラスター内の並列処理を活用し、クエリパフォーマンスを最大化します。
-- 分散スタイル
+- [**分散スタイル**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html)
 - Amazon Redshift Streaming Ingestion : Kinesis Data StreamsやAmazon Managed Streaming for Apache Kafkaなどのデータストリームからのデータを即座にRedshiftに取り込み、分析を可能にする。
 - [**Amazon Redshift Serverless**](https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/working-with-serverless.html) : インフラを管理することなくデータ分析を実行、拡張できる。ワークロードに応じてコンピュート容量が自動的に拡張されるため、使用した分だけ料金を支払う。
+<<<<<<< HEAD
+- [**Amazon Redshift のフェデレーテッドクエリによるデータのクエリ**](https://docs.aws.amazon.com/redshift/latest/dg/federated-overview.html)
+=======
 - Amazon Redshiftフェデレーテッドクエリ
+>>>>>>> 44e5177bad7ffdc149c4a5bff7ce6ead0860fccb
 - データ共有
 - [**Amazon Redshift でのマテリアライズドビューの作成**](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/materialized-view-overview.html)
 - Amazon Redshift Data API
@@ -220,7 +233,7 @@ AWS Cloud9は、クラウドベースの統合開発環境（IDE）です。コ�
 ### **AWS Cloud Development Kit (AWS CDK)**
 AWS CDKは、プログラミング言語を使用してAWSリソースを定義し、デプロイするためのフレームワークです。インフラストラクチャをコードとして記述し、管理することができます。
 
-### **AWS CodeBuild**
+### [**AWS CodeBuild**](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/welcome.html)
 AWS CodeBuildは、ソースコードのビルドとテストを行うマネージドサービスです。複数のビルド環境に対応しており、継続的インテグレーション（CI）パイプラインの構築に利用されます。
 
 ### **AWS CodeCommit**
