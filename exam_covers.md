@@ -1,6 +1,3 @@
-参考
-https://tech.nri-net.com/entry/aws_certified_data_engineer_associate
-
 ### 試験ガイド
 ### Apache Project
 
