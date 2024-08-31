@@ -1,122 +1,201 @@
-# AWS Glue
-https://docs.aws.amazon.com/ja_jp/glue/latest/dg/what-is-glue.html
-### AWS Glue ジョブ
-AWS Glue ジョブは、データの抽出、変換、ロード（ETL）プロセスを自動化するためのタスクです。AWS GlueはフルマネージドのETLサービスであり、データの準備と統合を簡素化します。Glueジョブは、S3、RDS、Redshiftなどのデータソースからデータを抽出し、変換処理を行い、最終的にターゲットのデータストアにロードする一連のプロセスを含みます。
+# AWS Certified Data Engineer - Associate (DEA-C01) 合格しました!
 
-### AWS Glue DataBrew
-AWS Glue DataBrew は、データのクリーニング、正規化、変換のためのフルマネージド型のビジュアルデータ準備サービスです。ETL とは異なり、操作する記述コードがないという点で AWS Glue ETL とは異なります。 DataBrew には、データ変換ジョブを作成および管理するためのビジュアル point-and-click インターフェイスを備えた 250 を超える組み込み変換が用意されています。
-https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/serverless-etl-aws-glue/databrew.html#:~:text=AWS%20Glue%20DataBrew%20%E3%81%AF%E3%80%81%E3%83%87%E3%83%BC%E3%82%BF,ETL%20%E3%81%A8%E3%81%AF%E7%95%B0%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82
+AWS認定資格は、クラウド業界での技術的な専門知識を評価するための重要な基準とされています。私がAWS Certified Data Enginner - Associate(DEA-C01)試験に挑戦した理由も、その専門知識を証明することで将来的なキャリアアップを目指すためでした。
 
-### AWS Glue Studio
-AWS Glue Studioは、AWS Glueでのデータ統合ジョブを簡単に作成、実行、監視できる新しいグラフィカルインターフェースです1. データ変換ワークフローを視覚的に構成し、AWS GlueのApache SparkベースのサーバーレスETLエンジンでシームレスに実行できます。
+## 試験に挑戦した背景
+私はAWS実務未経験ですが、これまでに、「AWS Certified Solutions Architect - Associate」「AWS Certified SysOps Administrator - Associate」「AWS Certified Developer - Associate」の3つのAWS認定資格を取得していました。AWS認定資格を取得しようと考えた主な理由は、AWSサービスを扱うIT企業への転職を目指していたからです。次のステップとしてデータエンジニアの認定資格を目指すことにしました。
 
-### AWS Glue クローラー
-AWS Glue クローラーは、データソースからメタデータを自動的に収集し、AWS Glue データカタログにテーブル定義を作成するツールです。これにより、データの構造を簡単に把握し、クエリや分析に利用できるようになります。クローラーは、データソースをスキャンし、スキーマ情報（列名、データ型、パーティション情報など）を収集して、データカタログに登録します。
+AWSの認定資格は、取得者がどの程度AWSの技術に精通しているかを示す一つの定量的な指標となります。そのため、AWS DEAの取得は、今後のキャリアにおいて非常に重要なステップだと考えました。
 
-### AWS Glue ワークフロー
-AWS Glueワークフローは、データの抽出、変換、ロード（ETL）プロセスを自動化するために複数のジョブやトリガーを統合して管理するための機能です。ワークフローを使用することで、複数のETLタスクをシーケンシャルまたは並列に実行し、データ処理のパイプラインを構築、監視、管理することができます。
+## 学習リソースの選定
 
-### AWS Glue Connections
-AWS Glueジョブやクローラーがデータソースに接続するための設定情報を提供します。データエンジニアは、データストア（例：Amazon RDS、Amazon Redshift、またはオンプレミスのデータベース）にアクセスするために必要な接続情報を定義し、それをAWS Glueジョブやクローラーに使用させることができます。
+AWS DEA試験に合格するために、私は以下の学習リソースを活用しました。
 
-# Amazon Athena
-https://docs.aws.amazon.com/ja_jp/athena/latest/ug/what-is.html
+- **Practice Exams | AWS Certified Data Engineer Associate[2024] (Udemy)**
+  実践的な試験問題を解くことで、試験の形式や出題傾向を把握することができました。
+- **AWS Skill Builder (Exam Prep Official Practice Question Set: AWS Certified Data Engineer - Associate (DEA-C01 - Japanese))**
+  AWSが提供する公式の模擬試験で、試験対策として非常に役立ちました。
 
-# Apache Spark
-https://qiita.com/taka_yayoi/items/31190da754106b2d284e
-- ブロードキャスト結合機能
+さらに、試験ガイドを確認することは非常に重要です。ガイドには試験範囲や出題トピックが詳述されており、効率的な学習計画を立てるための道標となります。こちらのガイドをしっかりと読み込むことで、試験に出題される内容を予め理解することができました。
+- [AWS Certified Data Engineer - Associate (DEA-C01) Exam Guide](https://d1.awsstatic.com/ja_JP/training-and-certification/docs-data-engineer-associate/AWS-Certified-Data-Engineer-Associate_Exam-Guide.pdf)
 
-https://aws.amazon.com/jp/what-is/apache-spark/
+## 学習内容とスケジュール
+これまでにAWS認定資格を3つ取得していますが、AWS DEA試験勉強は多くの新しいコンセプトを学ぶ必要がありました。特にデータエンジニアリングに関連する以下のAWSサービスとApache Projectの学習を進めました。
+#### AWSサービス
+- **AWS Glue**
+- **Amazon EMR**
+- **Amazon Athena**
+- **Amazon Redshift**
+- **AWS Lake Formation**
 
-# AWS Lake Formation
-AWS Lake Formationは、データレイクの構築、管理、セキュリティを簡素化するためのフルマネージドサービスです。データレイクは、様々なソースからの構造化データ、半構造化データ、非構造化データを中央のリポジトリに集約し、分析や機械学習のために容易にアクセスできるようにするシステムです。Lake Formationは、このデータレイクを迅速に設定し、セキュリティを確保し、データガバナンスを実現するためのツールと機能を提供します。
+#### Apache Project
+- **Hive**
+- **Spark**
+- **Kafka**
+- **Flink**
+- **Hadoop**
+- **Airflow**
+- **Parquet**
 
-https://docs.aws.amazon.com/ja_jp/lake-formation/latest/dg/cbac-tutorial.html
+これらの技術に関する基本的な理解を深めることで、AWSが提供するデータ関連サービスの背後にあるコンセプトをより深く理解することができました。
 
-# Amazon Data Firehose
-https://docs.aws.amazon.com/ja_jp/firehose/latest/dev/what-is-this-service.html
+また、勉強時間は1ヶ月と決めていたため効率的に学習を進めることが重要でした。以下のように勉強スケジュールを組み立てました。
 
-- ストリーミングデータをキャプチャ、変換、データストアにロードする機能により、イベントログなどの大量のステートレストランザクションを処理する。
+- **1週目**
+  試験ガイドを確認し、全体像を把握。AWSの公式ドキュメントとリソースを通じて基礎知識を固める。
+- **2週目**
+  UdemyやAWS Skill Builderを使用して、実際の問題形式に慣れる。Apache Projectの技術を並行して学習。
+- **3週目**
+  各AWSサービスのドキュメントを詳細に確認し、模擬試験を通じて弱点を洗い出す。
+- **4週目**
+  総復習と模擬試験の再挑戦。理解が浅い部分を重点的に復習。
 
-# Amazon S3
-https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/Welcome.html
-- Amazon S3イベント通知
-  S3バケットで特定のイベントが発生したときに通知を受け取ることができる。
+## 試験結果
+![](https://storage.googleapis.com/zenn-user-upload/6bff8621c38a-20240830.png)
+結果として、無事にAWS DEAに合格することができました。AWSの実務経験がない中での挑戦でしたが適切なリソースと計画的な学習を行うことで目標を達成することができました。
 
-# Amazon EMR (Elastic MapReduce)
-https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html
-クラスターがEMRの中心的コンポーネントはクラスターと呼ぶ。クラスターはAmazon EC2インスタンスの集合で、クラスター内の各インスタンスは、ノードと呼ばれる。各ノードには、クラスター内にロールがあり、ノードタイプと呼ばれ、プライマリノード、コアノード、タスクノードがある。また、Amazon EMRは、各ノードタイプにさまざまなソフトウェアコンポーネントをインストールし、Apache Hadoopなどの分散型アプリケーションでのロールを各ノードに付与する。
+## 最後に
+AWS DEAの取得は、AWSサービスを扱うIT企業に転職するための大きなステップとなりました。この試験を通じて得た知識とスキルは今後の自信につながりました。
+このブログがこれから挑戦する方の一助となれば幸いです。成功を祈っています！
 
-# Amazon MSK (Amazon Managed Streaming for Apache Kafka)
-https://docs.aws.amazon.com/ja_jp/msk/latest/developerguide/what-is-msk.html#:~:text=Amazon%20Managed%20Streaming%20for%20Apache%20Kafka%20(Amazon%20MSK)%20%E3%81%AF%E3%80%81,%E3%81%99%E3%82%8B%E3%80%81%E3%83%95%E3%83%AB%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A7%E3%81%99%E3%80%82
-分散型ストリーミングプラットフォームであり、リアルタイムデータの取り込み、処理、分析のために使用される。
-リアルタイムデータストリーミング、イベント駆動型アーキテクチャ、ログ収集とモニタリング、データパイプラインの構築、メッセージブローカーとしての使用などに適している。
+--------------------
+## 参考
 
-## Apache Kafka
-https://aws.amazon.com/jp/what-is/apache-kafka/
+### [**Amazon Athena**](https://docs.aws.amazon.com/ja_jp/athena/latest/ug/what-is.html)
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/user-created-workgroups.html
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/partition-projection.html
+https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/reusing-query-results.html
+https://docs.aws.amazon.com/athena/latest/ug/troubleshooting-athena.html#troubleshooting-athena-create-table-as-select-ctas
+https://docs.aws.amazon.com/athena/latest/ug/ctas-examples.html#ctas-example-format
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/notebooks-spark-getting-started.html
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/columnar-storage.html
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/msck-repair-table.html
+https://docs.aws.amazon.com/ja_jp/athena/latest/ug/data-sources-glue.html
 
-# Amazon DynamoDB
-https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/Introduction.html
+### [**Amazon EMR**](https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-what-is-emr.html)
+https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-overview.html#emr-overview-clusters
+https://aws.amazon.com/jp/blogs/news/migrate-and-deploy-your-apache-hive-metastore-on-amazon-emr/
+https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-data-encryption-options.html
+https://docs.aws.amazon.com/ja_jp/emr/latest/ManagementGuide/emr-plan-ha-applications.html
+https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/architecture.html
 
-- 低レイテンシー、高可用性、およびリージョン間レプリケーションを提供し、ステートフルトランザクションを処理するのに最適。
+### [**AWS Glue**](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/what-is-glue.html)
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/add-crawler.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-api-crawler-pyspark-extensions-dynamic-frame.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/grouping-input-files.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/glue-data-quality.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/machine-learning.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/schema-registry.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/workflows_overview.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/manage-catalog.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-api-jobs-job.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/monitor-continuations.html
+https://aws.amazon.com/jp/blogs/big-data/introducing-aws-glue-flex-jobs-cost-savings-on-etl-workloads/
+https://docs.aws.amazon.com/glue/latest/dg/add-job.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/data-quality-using-apis.html
+https://aws.amazon.com/jp/blogs/big-data/implement-a-cdc-based-upsert-in-a-data-lake-using-apache-iceberg-and-aws-glue/
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/transforms-pivot-rows-to-columns.html
+https://docs.aws.amazon.com/ja_jp/glue/latest/dg/set-up-iam.html
 
-# AWS Data Exchange
-https://docs.aws.amazon.com/ja_jp/data-exchange/latest/userguide/what-is.html#:~:text=AWS%20Data%20Exchange%20%E3%81%AF%E3%80%81AWS,%E8%BF%BD%E8%B7%A1%E3%81%8A%E3%82%88%E3%81%B3%E7%AE%A1%E7%90%86%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82
-AWS Data Exchange はクラウド内のサードパーティデータを検出してサブスクライブするために特別に設計されており、これらのデータセットへの直接 API アクセスを提供します。
-サードパーティデータを購入、配布、および管理するためのマネージドサービスです。企業や個人は、様々な業界のデータセットを簡単に検索し、購読して利用することができます。このサービスは、データプロバイダーがデータをセキュアに配布し、データ消費者が簡単にアクセスできるようにすることを目的としています。
+### [**AWS Glue DataBrew**](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html)
+https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-rules.html
 
-# Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
-https://docs.aws.amazon.com/ja_jp/mwaa/latest/userguide/what-is-mwaa.html#:~:text=Amazon%20Managed%20Workflows%20for%20Apache%20Airflow%20%E3%81%AF%E3%80%81%E3%80%8CApache%20Airflow%20%E3%80%8D,%E3%81%9F%E3%82%81%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82
+### [**AWS Lake Formation**](https://docs.aws.amazon.com/ja_jp/lake-formation/latest/dg/what-is-lake-formation.html)
+https://docs.aws.amazon.com/ja_jp/lake-formation/latest/dg/onboarding-lf-permissions.html
+https://docs.aws.amazon.com/ja_jp/lake-formation/latest/dg/data-filtering.html
 
-## Apache Airflow
-Apache Airflowは、データパイプラインのスケジューリングとモニタリングを行うためのオープンソースのワークフローオーケストレーションツールです。Airflowを使用すると、複雑なデータ処理タスクを定義し、依存関係を管理し、スケジュールに基づいて自動的に実行することができます。
+### [**Amazon Kinesis Data Firehose**](https://docs.aws.amazon.com/ja_jp/firehose/latest/dev/what-is-this-service.html)
+https://docs.aws.amazon.com/ja_jp/firehose/latest/dev/record-format-conversion.html
 
-# Amazon Redshift Data
-https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/welcome.html
-Redshift Data API
+### [**Amazon Kinesis Data Streams**](https://docs.aws.amazon.com/ja_jp/streams/latest/dev/introduction.html)
+https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/CrossAccountSubscriptions-Kinesis.html
+https://docs.aws.amazon.com/ja_jp/streams/latest/dev/tutorial-stock-data-lambda.html
 
-------------------------
+### [**Amazon Managed Service for Apache Flink**](https://docs.aws.amazon.com/ja_jp/managed-flink/latest/java/what-is.html)
+https://docs.aws.amazon.com/ja_jp/managed-flink/latest/java/how-flink-connectors.html
+https://aws.amazon.com/jp/blogs/news/real-time-anomaly-detection-via-random-cut-forest-in-amazon-kinesis-data-analytics/
 
-## ステートフルトランザクションとステートレストランザクション
+### [**Amazon Managed Streaming for Apache Kafka (Amazon MSK)**](https://docs.aws.amazon.com/ja_jp/msk/latest/developerguide/what-is-msk.html)
+https://aws.amazon.com/jp/blogs/news/webinar-bb-amazon-msk-2019/
 
-### ステートフルトランザクション (Stateful Transaction)
+### [**Amazon QuickSight**](https://docs.aws.amazon.com/ja_jp/quicksight/latest/user/welcome.html)
+https://docs.aws.amazon.com/ja_jp/quicksight/latest/user/spice.html
 
-#### 特徴
-- **状態の維持**: ステートフルトランザクションは、トランザクションの実行中にその状態を保持します。トランザクションの各ステップが前のステップの出力に依存するため、一貫性と整合性が重要です。
-- **高い整合性**: 一連の処理が全て成功するか、全て失敗するかのいずれかです。ACID (Atomicity, Consistency, Isolation, Durability) 特性をサポートすることが多いです。
-- **トランザクション管理**: ロールバックやコミットなどの操作が可能であり、失敗した場合には一貫性を保つために全ての操作を元に戻すことができます。
+### [**Amazon CloudWatch Logs**](https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/CrossAccountSubscriptions-Kinesis.html
 
-#### 適用例
-- **データベーストランザクション**: SQL データベースでの複雑な取引処理など。例えば、銀行の振込処理では、送金元の口座から引き落とし、送金先の口座に入金という一連の操作がすべて成功するか失敗するかを保証します。
-- **ワークフロー管理**: AWS Step Functions などを使用して、状態を保持しながら複数のステップを順に実行するワークフローを管理します。
+### [**Amazon Managed Workflows for Apache Airflow (Amazon MWAA)**](https://docs.aws.amazon.com/ja_jp/mwaa/latest/userguide/what-is-mwaa.html)
+https://docs.aws.amazon.com/ja_jp/mwaa/latest/userguide/working-dags.html
 
-#### AWS サービス例
-- **Amazon RDS**: リレーショナルデータベースでトランザクション管理を行います。
-- **AWS Step Functions**: ステートマシンを使って複雑なワークフローを管理します。
+### [**Amazon Simple Notification Service (Amazon SNS)**](https://docs.aws.amazon.com/ja_jp/sns/latest/dg/welcome.html)
+https://docs.aws.amazon.com/ja_jp/sns/latest/dg/sns-monitoring-using-cloudwatch.html
 
-### ステートレストランザクション (Stateless Transaction)
+### [**Amazon Simple Queue Service (Amazon SQS)**](https://docs.aws.amazon.com/ja_jp/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)
+https://docs.aws.amazon.com/ja_jp/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html
 
-#### 特徴
-- **状態の非依存性**: 各リクエストが独立して処理され、以前のリクエストの状態に依存しません。このため、各リクエストは自己完結型であり、他のリクエストからの影響を受けません。
-- **高いスケーラビリティ**: ステートレスな処理は、同時に多くのリクエストを処理できるため、スケーラビリティが高いです。
-- **簡単なトランザクション管理**: 各リクエストは独立しているため、複雑なトランザクション管理は不要です。
+### [**AWS Step Functions**](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/welcome.html)
+https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-states.html
 
-#### 適用例
-- **ウェブリクエスト**: HTTP リクエストなど。各リクエストは独立して処理され、ステートレスであることが多いです。
-- **マイクロサービスアーキテクチャ**: 各サービスが独立して機能し、状態を持たずにリクエストを処理します。
+### [**AWS Lambda**](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html)
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/chapter-layers.html
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-intro-execution-role.html
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-sns.html
 
-#### AWS サービス例
-- **AWS Lambda**: 各実行が独立した関数を実行し、ステートレスで処理を行います。
-- **Amazon API Gateway**: RESTful API を提供し、各リクエストが独立して処理されます。
+### [**Amazon DynamoDB**](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/Introduction.html)
+https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/AutoScaling.html
+https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/ql-reference.html
 
-## JDBC (Java Database Connectivity)
-JDBC (Java Database Connectivity) は、Javaアプリケーションがデータベースと対話するための標準APIです。JDBCを使用することで、Javaアプリケーションはリレーショナルデータベースに接続し、SQLクエリを実行し、結果を処理することができます。JDBCはJavaプラットフォームの一部として提供されており、データベース独立性を確保しつつ、各種データベースへの接続を容易にします。
+### [**Amazon RDS**](https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Welcome.html)
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
+https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html
 
-## ODBC (Open Database Connectivity) 
-ODBC (Open Database Connectivity) は、Windows環境で標準化されたデータベースアクセスAPIです。ODBCを使用することで、アプリケーションは特定のデータベースに依存せず、共通のインターフェースを介してさまざまなデータベースに接続できます。ODBCは、Microsoftによって開発され、Windowsプラットフォームに広く採用されています。
+### [**Amazon Redshift**](https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/welcome.html)
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_choosing_dist_sort.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/working-with-serverless.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/materialized-view-streaming-ingestion.html
+https://docs.aws.amazon.com/redshift/latest/dg/federated-overview.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/materialized-view-overview.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_intro_STL_tables.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/datashare-overview.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c-using-spectrum.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_VACUUM_command.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_EXTRACT_function.html
+https://aws.amazon.com/jp/blogs/big-data/real-time-analytics-with-amazon-redshift-streaming-ingestion/
+https://aws.amazon.com/jp/blogs/big-data/using-the-amazon-redshift-data-api-to-interact-with-amazon-redshift-clusters/
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Loading-data-from-S3.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_best-practices-single-copy-command.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_Unloading_tables.html
+https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/t_rls.html
 
+### [**Amazon API Gateway**](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/welcome.html)
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/services-apigateway-tutorial.html
 
-## データメッシュ
-データメッシュは、分散型かつ非中心の所有権を通じてデータセキュリティに関する高度な課題を解決するアーキテクチャフレームワークです。
-https://aws.amazon.com/jp/what-is/data-mesh/
+### [**AWS Systems Manager**](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/what-is-systems-manager.html)
+https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/systems-manager-parameter-store.html
 
+### [**AWS Database Migration Service (AWS DMS)**](https://docs.aws.amazon.com/ja_jp/dms/latest/userguide/Welcome.html)
+https://docs.aws.amazon.com/ja_jp/dms/latest/userguide/CHAP_Task.CDC.html
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Troubleshooting_Latency.html
+
+### [**Amazon VPC**](https://docs.aws.amazon.com/ja_jp/vpc/latest/privatelink/what-is-privatelink.html)
+https://docs.aws.amazon.com/ja_jp/vpc/latest/privatelink/vpc-endpoints-s3.html
+https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-network-acls.html
+
+### [**AWS Key Management Service (AWS KMS)**](https://docs.aws.amazon.com/ja_jp/kms/latest/developerguide/overview.html)
+https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/UsingDSSEncryption.html
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html
+https://docs.aws.amazon.com/ja_jp/kms/latest/developerguide/key-policy-modifying-external-accounts.html
+
+### [**Amazon Elastic Block Store (Amazon EBS)**](https://docs.aws.amazon.com/ja_jp/ebs/latest/userguide/what-is-ebs.html)
+https://docs.aws.amazon.com/ja_jp/ebs/latest/userguide/ebs-modify-volume.html
+
+### [**Amazon Elastic File System (Amazon EFS)**](https://docs.aws.amazon.com/ja_jp/efs/latest/ug/whatisefs.html)
+https://docs.aws.amazon.com/ja_jp/efs/latest/ug/accessing-fs.html
+
+### [**Amazon S3**](https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/Welcome.html)
+https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/Versioning.html
+https://aws.amazon.com/jp/blogs/aws/introducing-amazon-s3-object-lambda-use-your-code-to-process-data-as-it-is-being-retrieved-from-s3/
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html
+https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/selecting-content-from-objects.html
