@@ -1,3 +1,7 @@
+https://zenn.dev/articles/7b06a03119232b/edit
+->掲載場所
+
+
 # AWS Certified Data Engineer - Associate (DEA-C01) 合格しました!
 
 AWS認定資格は、クラウド業界での技術的な専門知識を評価するための重要な基準とされています。私がAWS Certified Data Enginner - Associate(DEA-C01)試験に挑戦した理由も、その専門知識を証明することで将来的なキャリアアップを目指すためでした。
